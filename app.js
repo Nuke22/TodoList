@@ -11,6 +11,7 @@ app.use(express.static("public"));
 
 const currentDate = new Date()
 const daysOfTheWeek = ["Sunday", "Monday", "Tueasday", "Wednesday", "Thursday", "Friday", "Saturday"]
+let tasks = []
 
 app.get('/', function (req, res) {
   const currentFormattedDate = makeFormattedDate(currentDate)
