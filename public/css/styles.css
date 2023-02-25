@@ -1,0 +1,29 @@
+html {
+    height: 100%;
+    background: rgb(131,58,180);
+    background: linear-gradient(52deg, rgba(131,58,180,1) 0%, rgba(253,29,29,0.7147233893557423) 50%, rgba(252,176,69,1) 100%);
+    display: flex;
+    justify-content: center;
+}
+body {
+    width: 60%;
+    /* justify-content: center; */
+    display:flex;
+    flex-direction: column;
+}
+
+.text {
+    background: rgba(249, 242, 245, 0.8);
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.date {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #540d83; 
+    display: flex;
+    justify-content: center;
+
+}

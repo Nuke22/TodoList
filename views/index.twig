@@ -1,0 +1,12 @@
+{% include "header.twig" %}
+
+<p class="date text">{{date}}</p>
+<ul>
+    {% for element in elements %}
+    <li>
+      <input type="checkbox" name="{{element.id}}" checked>
+      <label for="{{element.id}}">{{ element.text|e }}</label>
+    </li>
+    {% endfor %}
+</ul>
+{% include "footer.twig" %}
