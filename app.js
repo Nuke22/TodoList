@@ -32,13 +32,7 @@ function main() {
   // making model
   const task = new mongoose.model("Task", taskSchema)
 
-task.find({}, (err, docs) => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log(docs);
-    }
-  })
+  task.find({}, (e, r) => {e ? console.log(e) : console.log(r)})
 }
 
 app.get('/', function (req, res) {
