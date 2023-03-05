@@ -14,12 +14,15 @@ app.use(express.static("public"));
 // global variables
 const currentDate = new Date()
 const daysOfTheWeek = ["Sunday", "Monday", "Tueasday", "Wednesday", "Thursday", "Friday", "Saturday"]
+const tasks = [
+  {id: 1, task: "do something"},
+  {id: 2, task: "do nothing!"}
+]
 
 // db section
-main().catch(err => console.log(err));
-async function readFromDb() {
+function main() {
   mongoose.set("strictQuery", false);
-  await mongoose.connect('mongodb://127.0.0.1:27017/todoList', { useNewUrlParser: true, useUnifiedTopology: true });
+  mongoose.connect('mongodb://127.0.0.1:27017/todoList', { useNewUrlParser: true, useUnifiedTopology: true });
   
   // making schema
   const taskSchema = new mongoose.Schema({
@@ -37,7 +40,6 @@ task.find({}, (err, docs) => {
     }
   })
 }
-console.log(taskArray)
 
 app.get('/', function (req, res) {
   const currentFormattedDate = makeFormattedDate(currentDate)

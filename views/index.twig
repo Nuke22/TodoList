@@ -4,13 +4,14 @@
 <div class="new-task content">
     <input type="text" name="new-task-field" placeholder="New Task">
     <button type="submit"><span id="plus">+</span></button>
-</div>
-<ul>
-    {% for element in elements %}
+
+    <ul>
+    {% for task in tasks %}
     <li>
-      <input type="checkbox" name="{{element.id}}" checked>
-      <label for="{{element.id}}">{{ element.content|e }}</label>
+      <input type="checkbox" name="{{task.id}}" checked>
+      <label for="{{task.id}}">{{ task.task|e }}</label>
     </li>
     {% endfor %}
 </ul>
+</div>
 {% include "footer.twig" %}
