@@ -1,17 +1,20 @@
 {% include "header.twig" %}
 
 <h1 class="date content">{{date}}</h1>
-<div class="new-task content">
+<div class="content">
+  <div class="new-task">
     <input type="text" name="new-task-field" placeholder="New Task">
     <button type="submit"><span id="plus">+</span></button>
+  </div>
 
-    <ul>
+  <ul>
     {% for task in tasks %}
     <li>
       <input type="checkbox" name="{{task.id}}" checked>
       <label for="{{task.id}}">{{ task.task|e }}</label>
     </li>
     {% endfor %}
-</ul>
+  </ul>
 </div>
+
 {% include "footer.twig" %}

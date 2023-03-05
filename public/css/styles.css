@@ -46,3 +46,12 @@ button {
     justify-content: center;
 
 }
+
+.new-task {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* todo: make adaptive design */
