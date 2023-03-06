@@ -14,30 +14,38 @@ app.use(express.static("public"));
 // global variables
 const currentDate = new Date()
 const daysOfTheWeek = ["Sunday", "Monday", "Tueasday", "Wednesday", "Thursday", "Friday", "Saturday"]
-const tasks = [
-  {id: 1, task: "do something"},
-  {id: 2, task: "do nothing!"}
-]
+let tasks = null
 
 // db section
-function main() {
-  mongoose.set("strictQuery", false);
-  mongoose.connect('mongodb://127.0.0.1:27017/todoList', { useNewUrlParser: true, useUnifiedTopology: true });
-  
-  // making schema
-  const taskSchema = new mongoose.Schema({
-    task: String
-  })
 
-  // making model
-  const task = new mongoose.model("Task", taskSchema)
+mongoose.set("strictQuery", false);
+mongoose.connect('mongodb://127.0.0.1:27017/todoList', { useNewUrlParser: true, useUnifiedTopology: true });
 
-  task.find({}, (e, r) => {e ? console.log(e) : console.log(r)})
-}
+// making schema
+const taskSchema = new mongoose.Schema({
+  task: String
+})
+
+// making model
+const task = new mongoose.model("Task", taskSchema)
+
 
 app.get('/', function (req, res) {
   const currentFormattedDate = makeFormattedDate(currentDate)
-  res.render("index", {date: currentFormattedDate, tasks: tasks})
+  task.find({}, (e, r) => {
+    if(e) {
+      console.log(e)
+    } else {
+      // console.log(r)
+      res.render("index", {date: currentFormattedDate, tasks: r})
+    }
+  }) 
+
+})
+
+app.post("/", function (req, res) {
+  console.log(req.body)
+  // task.insertMany()
 })
 app.listen(port)
 

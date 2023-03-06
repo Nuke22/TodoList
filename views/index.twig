@@ -2,9 +2,11 @@
 
 <h1 class="date content">{{date}}</h1>
 <div class="content">
-  <div class="new-task">
-    <input type="text" name="new-task-field" placeholder="New Task">
-    <button type="submit"><span id="plus">+</span></button>
+  <div>
+    <form action="/" method="post" class="new-task">
+      <input type="text" name="new-task-field" placeholder="New Task" autocomplete="off">
+      <button type="submit" name="submit"><span id="plus">+</span></button>
+    </form>
   </div>
 
   <ul>
