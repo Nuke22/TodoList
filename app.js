@@ -36,7 +36,6 @@ app.get('/', function (req, res) {
     if(e) {
       console.log(e)
     } else {
-      // console.log(r)
       res.render("index", {date: currentFormattedDate, tasks: r})
     }
   }) 
@@ -44,8 +43,8 @@ app.get('/', function (req, res) {
 })
 
 app.post("/", function (req, res) {
-  console.log(req.body)
-  // task.insertMany()
+  task.insertMany([{ task: req.body.taskText }], (e, r) => e ? console.log(e) : console.log(r))
+  res.redirect("/")
 })
 app.listen(port)
 
