@@ -26,6 +26,11 @@ button {
     justify-content: center;
 }
 
+ul {
+    list-style: none;
+    padding: 0;
+}
+
 #plus {
     position:relative;
     font-size: 2rem;

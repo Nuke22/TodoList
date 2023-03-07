@@ -46,6 +46,13 @@ app.post("/", function (req, res) {
   task.insertMany([{ task: req.body.taskText }], (e, r) => e ? console.log(e) : console.log(r))
   res.redirect("/")
 })
+
+
+app.post("/delete", function(req, res) {
+  console.log(req.body.checkbox)
+  task.deleteOne({ _id: req.body.checkbox}, (e, r) => e ? console.log(e) : console.log(r)) 
+  res.redirect("/")
+})
 app.listen(port)
 
 

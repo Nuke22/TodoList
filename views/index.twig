@@ -12,11 +12,16 @@
   <ul>
     {% for task in tasks %}
     <li>
-      <input type="checkbox" name="{{task.id}}" checked>
-      <label for="{{task.id}}">{{ task.task|e }}</label>
+      <form action="/delete" method="post">
+        <input type="checkbox" name="checkbox" value="{{task.id}}" unchecked onChange="this.form.submit()">
+        <label for="{{task.id}}">{{ task.task|e }}</label>
+      </form>
     </li>
     {% endfor %}
   </ul>
 </div>
+{# <form method="POST" action="/">
+    <input class="form-check-input" name="checked" type="checkbox" value="true" onChange="this.form.submit()">
+</form> #}
 
 {% include "footer.twig" %}
